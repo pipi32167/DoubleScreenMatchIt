@@ -25,6 +25,8 @@
 -(CGPoint)positionAtRightTopOfScreen;
 -(CGPoint)positionAtRightBottomOfScreen;
 
+-(CGPoint)getInitPositionByPoint:(CGPoint)point andSize:(CGSize)size;
+-(CGSize)winSize;
 @end
 
 #define g_CCNodeHelper [CCNodeHelper sharedCCNodeHelper]

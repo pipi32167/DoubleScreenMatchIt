@@ -2,32 +2,20 @@
 //  MatchItScene.h
 //  DoubleScreenMatchIt
 //
-//  Created by yangqibin on 13-9-21.
+//  Created by yangqibin on 13-9-22.
 //
 //
 
-#import "CCLayer.h"
+#import "CCScene.h"
 
-@class CCMenuItemImage;
+@class MatchItLayer;
 
-#define MATCH_BUTTON_HEIGHT 32
-#define MATCH_BUTTON_WIDTH 32
-#define MATCH_BUTTON_ROWS 10
-#define MATCH_BUTTON_COLS 10
-#define MATCH_BUTTON_COUNT MATCH_BUTTON_ROWS * MATCH_BUTTON_COLS
-
-@interface MatchItLayer : CCLayer
+@interface MatchItScene : CCScene
 {
-    CCMenuItemImage *_matchButtons[MATCH_BUTTON_ROWS][MATCH_BUTTON_COLS];
-    CCArray *_matchButtonFileNames;
-    CCArray *_matchButtonSprites;
-    CCMenuItemImage *_beforeClickedImage ;
+    MatchItLayer* _upLayer;
+    MatchItLayer* _downLayer;
 }
 
-
-+ (id)node;
-
-+(id) scene;
-
++(id) node;
 
 @end

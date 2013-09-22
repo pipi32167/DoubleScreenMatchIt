@@ -2,27 +2,21 @@
 //  MatchItScene.m
 //  DoubleScreenMatchIt
 //
-//  Created by yangqibin on 13-9-21.
+//  Created by yangqibin on 13-9-22.
 //
 //
 
 #import "MatchItScene.h"
-#import "CCNodeHelper.h"
 #import "cocos2d.h"
+#import "MatchItLayer.h"
+//#import "CCNodeHelper.h"
+#import "Cocos2dHelper.h"
 
-@implementation MatchItLayer
+@implementation MatchItScene
 
 +(id) node
 {
-    return [[[MatchItLayer alloc] init] autorelease];
-}
-
-+(id) scene
-{
-    id scene = [CCScene node];
-    id layer = [MatchItLayer node];
-    [scene addChild:layer];
-    return  scene;
+    return [[[MatchItScene alloc] init] autorelease];
 }
 
 - (id)init
@@ -30,251 +24,40 @@
     self = [super init];
     if (self) {
         
-        _matchButtonSprites = [[CCArray alloc] initWithCapacity:MATCH_BUTTON_COUNT];
-        
-        NSMutableArray *buttonArray = [NSMutableArray arrayWithCapacity:MATCH_BUTTON_COUNT];
-        
-        CGSize totalSize = CGSizeMake(MATCH_BUTTON_WIDTH * MATCH_BUTTON_ROWS, MATCH_BUTTON_HEIGHT * MATCH_BUTTON_COLS);
-        CGPoint initPosition = [g_CCNodeHelper positionAtCenterOfScreenBySize:totalSize];
-        
+        [g_Audio preloadBackgroundMusic:@"bg0.wav"];
+        [g_Audio preloadEffect:@"click0.wav"];
+        [g_Audio preloadEffect:@"clear0.wav"];
+        [g_Audio playBackgroundMusic:@"bg0.wav"];
         
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"UI.plist"];
         
-        [self setupMatchButtonFileNames];
+        NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"Config" ofType:@"plist"];
+        NSDictionary *configDict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+        NSDictionary *area1Info = [configDict objectForKey:@"GameAreaInfo1"];
+        NSDictionary *area2Info = [configDict objectForKey:@"GameAreaInfo2"];
         
-        int randomShuffleArray[MATCH_BUTTON_ROWS][MATCH_BUTTON_COLS] = {0};
-        [self setupRandomShuffleArray:*randomShuffleArray withLength:(MATCH_BUTTON_ROWS * MATCH_BUTTON_COLS)];
+        unsigned seed = time(NULL);
+        CGSize winSize = [g_CCNodeHelper winSize];
         
-        for (int i = 0; i < MATCH_BUTTON_ROWS; i++) {
-            for (int j = 0; j < MATCH_BUTTON_COLS; j++) {
-
-                int imageIndex = randomShuffleArray[i][j];
-                NSString *imageFile = [_matchButtonFileNames objectAtIndex:imageIndex];
-
-                CCSprite *sprite = [CCSprite spriteWithSpriteFrameName:imageFile];
-                CCMenuItemImage *item = [CCMenuItemImage itemWithNormalSprite:sprite selectedSprite:nil block:^(id sender) {
-                    
-                    [self clickWithButton:sender];
-                }];
-                
-                item.tag = imageIndex;
-                
-                item.position = ccp(initPosition.x + i * MATCH_BUTTON_WIDTH,
-                                    initPosition.y + j * MATCH_BUTTON_HEIGHT);
-                item.anchorPoint = ccp(0, 0);
-                
-                [buttonArray addObject:item];
-                
-                item.userData = (void *)imageFile;
-                _matchButtons[i][j] = item;
-            }
-        }
-        
-        CCMenu *menu = [CCMenu menuWithArray:buttonArray];
-        menu.position = [g_CCNodeHelper positionAtLeftBottomOfScreen];
-//        menu.anchorPoint = [g_CCNodeHelper anchorAtCenterOfScreen];
-        [self addChild:menu];
+        _upLayer = [[MatchItLayer alloc] initWithRandSeed:seed andDict:area2Info];
+//        _upLayer.position = ccp(0, winSize.height/4);
+        [self addChild:_upLayer];
+        _upLayer.rotation = 180;
+        [_upLayer release];
         
         
+        _downLayer = [[MatchItLayer alloc] initWithRandSeed:seed andDict:area2Info];
+//        _downLayer.position = ccp(0, -winSize.height/4);
+        [self addChild:_downLayer];
+        [_downLayer release];
     }
     return self;
 }
 
-- (void)setupMatchButtonFileNames
-{
-    
-    NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"Config" ofType:@"plist"];
-    NSDictionary *configDict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-    NSDictionary *matchButtonInfoDict = [configDict objectForKey:@"MatchButtonInfo"];
-    
-    NSString *imageFile = [matchButtonInfoDict objectForKey:@"FileName"];
-    int beginId = [[matchButtonInfoDict objectForKey:@"BeginId"] intValue];
-    int endId = [[matchButtonInfoDict objectForKey:@"EndId"] intValue];
-    
-    _matchButtonFileNames = [[CCArray alloc] initWithCapacity:(endId - beginId + 1)];
-    for (int i  = beginId; i <= endId; i++) {
-        
-        [_matchButtonFileNames addObject:[NSString stringWithFormat:imageFile, [NSNumber numberWithInt:i]]];
-    }
-}
-
-- (void)setupRandomShuffleArray:(int *)array withLength:(int)length
-{
-    int count = [_matchButtonFileNames count];
-    for (int i = 0; i < length; i+=2) {
-        
-        array[i] = array[i + 1] = rand() % count ;
-    }
-    
-    for (int shuffleCount = 0; shuffleCount < 3; shuffleCount ++) {
-        for (int i = 0; i < length; i++) {
-            
-            int randIndex = rand() % length;
-            int temp = array[i];
-            array[i] = array[randIndex];
-            array[randIndex] = temp;
-        }
-    }
-}
 
 - (void)dealloc
 {
-    [_matchButtonSprites release];
-    [_matchButtonFileNames release];
     [super dealloc];
-}
-
-typedef struct PosIndex
-{
-    int x, y;
-} PosIndex;
-
-- (PosIndex)getButtonIndex:(CCMenuItemImage *)button
-{
-    int i, j;
-    for (i = 0; i < MATCH_BUTTON_ROWS; i++) {
-        for (j = 0; j < MATCH_BUTTON_COLS; j++) {
-            
-            if (button == _matchButtons[i][j]) {
-                
-                return {i, j};
-            }
-        }
-    }
-    
-    NSAssert(i < MATCH_BUTTON_ROWS && j < MATCH_BUTTON_COLS, @"index should not over limit");
-    
-    return {-1, -1};
-}
-
-- (void)clickWithButton:(CCMenuItemImage *)button
-{
-    PosIndex posIndex = [self getButtonIndex:button];
-    
-    NSLog(@"click %d, %d", posIndex.x, posIndex.y);
-    
-    if (_beforeClickedImage != nil
-        && [self button:(CCMenuItemImage *)_beforeClickedImage canMatch:(CCMenuItemImage *)button]) {
-        
-        _beforeClickedImage.visible = NO;
-        button.visible = NO;
-    }
-    
-    _beforeClickedImage = button;
-}
-
-- (BOOL)isNoBlockBetween:(PosIndex)posIndex1 andPosIndex:(PosIndex)posIndex2
-{
-    
-    if (posIndex1.x == posIndex2.x) {
-        
-        int max = MAX(posIndex1.y, posIndex2.y);
-        int min = MIN(posIndex1.y, posIndex2.y);
-        int y ;
-        for (y = min + 1; y < max; y ++) {
-            
-            if (_matchButtons[posIndex1.x][y].visible == YES) {
-                break;
-            }
-        }
-        
-        if (y == max) {
-            return YES;
-        }
-    }
-    
-    if (posIndex1.y == posIndex2.y) {
-        
-        int max = MAX(posIndex1.x, posIndex2.x);
-        int min = MIN(posIndex1.x, posIndex2.x);
-        int x ;
-        for (x = min + 1; x < max; x ++) {
-            
-            if (_matchButtons[x][posIndex1.y].visible == YES) {
-                break;
-            }
-        }
-        
-        if (x == max) {
-            return YES;
-        }
-    }
-    
-    return NO;
-
-}
-
-//check buttons can match by various corners
-- (BOOL)button:(CCMenuItemImage *)button1 canMatch:(CCMenuItemImage *)button2
-{
-    if (button1.tag == button2.tag) {
-
-        if (button2.visible == YES && button1.visible == YES
-            && button2 != button1) {
-            
-            //no corner check
-            PosIndex posIndex1 = [self getButtonIndex:button1];
-            PosIndex posIndex2 = [self getButtonIndex:button2];
-            
-            if ((posIndex1.x == posIndex2.x
-                || posIndex1.y == posIndex2.y)
-                && [self isNoBlockBetween:posIndex1 andPosIndex:posIndex2]) {
-                
-                return YES;
-            }
-            
-            //single corner check
-            PosIndex posIndex3 = {posIndex1.x, posIndex2.y};
-            PosIndex posIndex4 = {posIndex2.x, posIndex1.y};
-            
-            if (    (_matchButtons[posIndex3.x][posIndex3.y].visible == NO
-                     && [self isNoBlockBetween:posIndex1 andPosIndex:posIndex3]
-                     && [self isNoBlockBetween:posIndex2 andPosIndex:posIndex3])
-                ||  (_matchButtons[posIndex4.x][posIndex4.y].visible == NO
-                     && [self isNoBlockBetween:posIndex1 andPosIndex:posIndex4]
-                     && [self isNoBlockBetween:posIndex2 andPosIndex:posIndex4])) {
-                
-                return YES;
-            }
-            
-            
-            //double corner check
-            
-            //x axis scan
-            for(int x = 0; x < MATCH_BUTTON_COLS; x++) {
-                
-                PosIndex posIndex5 = {x, posIndex1.y};
-                PosIndex posIndex6 = {x, posIndex2.y};
-                
-                if (   _matchButtons[posIndex5.x][posIndex5.y].visible == NO
-                    && _matchButtons[posIndex6.x][posIndex6.y].visible == NO
-                    && [self isNoBlockBetween:posIndex1 andPosIndex:posIndex5]
-                    && [self isNoBlockBetween:posIndex6 andPosIndex:posIndex5]
-                    && [self isNoBlockBetween:posIndex2 andPosIndex:posIndex6]) {
-                        
-                    return YES;
-                }
-            }
-            //y axis scan
-            for(int y = 0; y < MATCH_BUTTON_ROWS; y++) {
-                
-                PosIndex posIndex5 = {posIndex1.x, y};
-                PosIndex posIndex6 = {posIndex2.x, y};
-                
-                if (   _matchButtons[posIndex5.x][posIndex5.y].visible == NO
-                    && _matchButtons[posIndex6.x][posIndex6.y].visible == NO
-                    && [self isNoBlockBetween:posIndex1 andPosIndex:posIndex5]
-                    && [self isNoBlockBetween:posIndex6 andPosIndex:posIndex5]
-                    && [self isNoBlockBetween:posIndex2 andPosIndex:posIndex6]) {
-                    
-                    return YES;
-                }
-            }
-//            return YES;
-        }
-    }
-    
-    return NO;
 }
 
 @end

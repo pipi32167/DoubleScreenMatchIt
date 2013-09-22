@@ -55,7 +55,13 @@ static CCNodeHelper *_sharedCCNodeHelper;
 -(CGPoint)positionAtCenterOfScreenBySize:(CGSize)size
 {
     CGPoint centerOfDirector = [self positionAtCenterOfScreen];
-    return ccp(centerOfDirector.x - size.width/2, centerOfDirector.y - size.height/2);
+    return [self getInitPositionByPoint:centerOfDirector andSize:size];
+}
+
+
+-(CGPoint)getInitPositionByPoint:(CGPoint)point andSize:(CGSize)size
+{
+    return ccp(point.x - size.width/2, point.y - size.height/2);
 }
 
 -(CGPoint)positionAtCenterOfScreen
@@ -86,6 +92,11 @@ static CCNodeHelper *_sharedCCNodeHelper;
 {
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     return ccp(winSize.width, 0);
+}
+
+-(CGSize)winSize
+{
+    return [[CCDirector sharedDirector] winSize];
 }
 
 @end
