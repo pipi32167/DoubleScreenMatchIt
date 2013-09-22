@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		331E46E617ED2D72001D2789 /* MatchItScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 331E46E517ED2D72001D2789 /* MatchItScene.mm */; };
+		331E46EE17ED3793001D2789 /* CCNodeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 331E46ED17ED3793001D2789 /* CCNodeHelper.m */; };
+		331E470617ED4DE4001D2789 /* UI.plist in Resources */ = {isa = PBXBuildFile; fileRef = 331E470417ED4DE4001D2789 /* UI.plist */; };
+		331E470717ED4DE4001D2789 /* UI.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 331E470517ED4DE4001D2789 /* UI.pvr.ccz */; };
+		331E471517ED79B0001D2789 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 331E471417ED79B0001D2789 /* Config.plist */; };
 		33778F6017EC2EA500756914 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33778F5F17EC2EA500756914 /* QuartzCore.framework */; };
 		33778F6217EC2EA500756914 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33778F6117EC2EA500756914 /* OpenGLES.framework */; };
 		33778F6417EC2EA500756914 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33778F6317EC2EA500756914 /* OpenAL.framework */; };
@@ -130,12 +135,29 @@
 		337790E117EC2EA600756914 /* vec3.c in Sources */ = {isa = PBXBuildFile; fileRef = 337790E017EC2EA600756914 /* vec3.c */; };
 		337790E317EC2EA600756914 /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = 337790E217EC2EA600756914 /* vec4.c */; };
 		337790E817EC2EA600756914 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 337790E717EC2EA600756914 /* main.m */; };
-		337790EB17EC2EA600756914 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 337790EA17EC2EA600756914 /* AppDelegate.m */; };
-		337790EE17EC2EA600756914 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 337790ED17EC2EA600756914 /* HelloWorldLayer.m */; };
-		337790F117EC2EA600756914 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 337790F017EC2EA600756914 /* IntroLayer.m */; };
+		337790EB17EC2EA600756914 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 337790EA17EC2EA600756914 /* AppDelegate.mm */; };
+		337790EE17EC2EA600756914 /* HelloWorldLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 337790ED17EC2EA600756914 /* HelloWorldLayer.mm */; };
+		337790F117EC2EA600756914 /* IntroLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 337790F017EC2EA600756914 /* IntroLayer.mm */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		331E470017ED4D54001D2789 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33778F5417EC2EA500756914 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 331E46FC17ED4D39001D2789;
+			remoteInfo = TexturePacker;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		331E46E417ED2D72001D2789 /* MatchItScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MatchItScene.h; path = MatchItScene/MatchItScene.h; sourceTree = "<group>"; };
+		331E46E517ED2D72001D2789 /* MatchItScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MatchItScene.mm; path = MatchItScene/MatchItScene.mm; sourceTree = "<group>"; };
+		331E46EC17ED3793001D2789 /* CCNodeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNodeHelper.h; sourceTree = "<group>"; };
+		331E46ED17ED3793001D2789 /* CCNodeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNodeHelper.m; sourceTree = "<group>"; };
+		331E470417ED4DE4001D2789 /* UI.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UI.plist; sourceTree = "<group>"; };
+		331E470517ED4DE4001D2789 /* UI.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = UI.pvr.ccz; sourceTree = "<group>"; };
+		331E471417ED79B0001D2789 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Config.plist; path = Resources/Config.plist; sourceTree = "<group>"; };
 		33778F5C17EC2EA500756914 /* DoubleScreenMatchIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoubleScreenMatchIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33778F5F17EC2EA500756914 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		33778F6117EC2EA500756914 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -393,11 +415,11 @@
 		337790E617EC2EA600756914 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		337790E717EC2EA600756914 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		337790E917EC2EA600756914 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		337790EA17EC2EA600756914 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		337790EA17EC2EA600756914 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		337790EC17EC2EA600756914 /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		337790ED17EC2EA600756914 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
+		337790ED17EC2EA600756914 /* HelloWorldLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = HelloWorldLayer.mm; sourceTree = "<group>"; };
 		337790EF17EC2EA600756914 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
-		337790F017EC2EA600756914 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		337790F017EC2EA600756914 /* IntroLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = IntroLayer.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -420,6 +442,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		331E46E317ED2D46001D2789 /* MatchItScene */ = {
+			isa = PBXGroup;
+			children = (
+				331E46E417ED2D72001D2789 /* MatchItScene.h */,
+				331E46E517ED2D72001D2789 /* MatchItScene.mm */,
+			);
+			name = MatchItScene;
+			sourceTree = "<group>";
+		};
+		331E470217ED4DE4001D2789 /* ArtProduction */ = {
+			isa = PBXGroup;
+			children = (
+				331E470317ED4DE4001D2789 /* UI */,
+			);
+			path = ArtProduction;
+			sourceTree = SOURCE_ROOT;
+		};
+		331E470317ED4DE4001D2789 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				331E470417ED4DE4001D2789 /* UI.plist */,
+				331E470517ED4DE4001D2789 /* UI.pvr.ccz */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		33778F5317EC2EA500756914 = {
 			isa = PBXGroup;
 			children = (
@@ -456,15 +504,18 @@
 		33778F7117EC2EA500756914 /* DoubleScreenMatchIt */ = {
 			isa = PBXGroup;
 			children = (
+				331E46E317ED2D46001D2789 /* MatchItScene */,
 				337790E917EC2EA600756914 /* AppDelegate.h */,
-				337790EA17EC2EA600756914 /* AppDelegate.m */,
+				337790EA17EC2EA600756914 /* AppDelegate.mm */,
 				337790EC17EC2EA600756914 /* HelloWorldLayer.h */,
-				337790ED17EC2EA600756914 /* HelloWorldLayer.m */,
+				337790ED17EC2EA600756914 /* HelloWorldLayer.mm */,
 				337790EF17EC2EA600756914 /* IntroLayer.h */,
-				337790F017EC2EA600756914 /* IntroLayer.m */,
+				337790F017EC2EA600756914 /* IntroLayer.mm */,
 				33778F7217EC2EA500756914 /* Resources */,
 				33778F8C17EC2EA500756914 /* libs */,
 				337790E517EC2EA600756914 /* Supporting Files */,
+				331E46EC17ED3793001D2789 /* CCNodeHelper.h */,
+				331E46ED17ED3793001D2789 /* CCNodeHelper.m */,
 			);
 			path = DoubleScreenMatchIt;
 			sourceTree = "<group>";
@@ -472,6 +523,7 @@
 		33778F7217EC2EA500756914 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				331E470217ED4DE4001D2789 /* ArtProduction */,
 				33778F7317EC2EA500756914 /* Default.png */,
 				33778F7517EC2EA500756914 /* Default-Landscape~ipad.png */,
 				33778F7717EC2EA500756914 /* fps_images.png */,
@@ -485,6 +537,7 @@
 				33778F8717EC2EA500756914 /* Icon@2x.png */,
 				33778F8917EC2EA500756914 /* Info.plist */,
 				33778F8A17EC2EA500756914 /* iTunesArtwork */,
+				331E471417ED79B0001D2789 /* Config.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -834,6 +887,51 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXLegacyTarget section */
+		331E46FC17ED4D39001D2789 /* TexturePacker */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "\"$(PROJECT_DIR)/Tools/PackTextures.sh\"";
+			buildConfigurationList = 331E46FD17ED4D39001D2789 /* Build configuration list for PBXLegacyTarget "TexturePacker" */;
+			buildPhases = (
+			);
+			buildToolPath = /bin/sh;
+			buildWorkingDirectory = "$(SRCROOT)";
+			dependencies = (
+			);
+			name = TexturePacker;
+			passBuildSettingsInEnvironment = 1;
+			productName = TexturePacker;
+		};
+		331E470817ED785E001D2789 /* CleanArtProduction */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "\"$(PROJECT_DIR)/tools/clearArtProduction.rb\"";
+			buildConfigurationList = 331E470917ED785E001D2789 /* Build configuration list for PBXLegacyTarget "CleanArtProduction" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/ruby;
+			buildWorkingDirectory = "$(SRCROOT)";
+			dependencies = (
+			);
+			name = CleanArtProduction;
+			passBuildSettingsInEnvironment = 1;
+			productName = CleanArtProduction;
+		};
+		331E470C17ED78F0001D2789 /* PreBuild */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "\"$(PROJECT_DIR)/Tools/prebuild.sh\"";
+			buildConfigurationList = 331E470D17ED78F0001D2789 /* Build configuration list for PBXLegacyTarget "PreBuild" */;
+			buildPhases = (
+			);
+			buildToolPath = /bin/sh;
+			buildWorkingDirectory = "$(SRCROOT)";
+			dependencies = (
+			);
+			name = PreBuild;
+			passBuildSettingsInEnvironment = 1;
+			productName = PreBuild;
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		33778F5B17EC2EA500756914 /* DoubleScreenMatchIt */ = {
 			isa = PBXNativeTarget;
@@ -846,6 +944,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				331E470117ED4D54001D2789 /* PBXTargetDependency */,
 			);
 			name = DoubleScreenMatchIt;
 			productName = DoubleScreenMatchIt;
@@ -859,6 +958,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0460;
+				TargetAttributes = {
+					33778F5B17EC2EA500756914 = {
+						DevelopmentTeam = QB7F34679A;
+					};
+				};
 			};
 			buildConfigurationList = 33778F5717EC2EA500756914 /* Build configuration list for PBXProject "DoubleScreenMatchIt" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -873,6 +977,9 @@
 			projectRoot = "";
 			targets = (
 				33778F5B17EC2EA500756914 /* DoubleScreenMatchIt */,
+				331E46FC17ED4D39001D2789 /* TexturePacker */,
+				331E470817ED785E001D2789 /* CleanArtProduction */,
+				331E470C17ED78F0001D2789 /* PreBuild */,
 			);
 		};
 /* End PBXProject section */
@@ -895,6 +1002,9 @@
 				33778F8817EC2EA500756914 /* Icon@2x.png in Resources */,
 				33778F8B17EC2EA500756914 /* iTunesArtwork in Resources */,
 				337790C917EC2EA600756914 /* ChangeLog in Resources */,
+				331E470617ED4DE4001D2789 /* UI.plist in Resources */,
+				331E470717ED4DE4001D2789 /* UI.pvr.ccz in Resources */,
+				331E471517ED79B0001D2789 /* Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1006,19 +1116,193 @@
 				337790E117EC2EA600756914 /* vec3.c in Sources */,
 				337790E317EC2EA600756914 /* vec4.c in Sources */,
 				337790E817EC2EA600756914 /* main.m in Sources */,
-				337790EB17EC2EA600756914 /* AppDelegate.m in Sources */,
-				337790EE17EC2EA600756914 /* HelloWorldLayer.m in Sources */,
-				337790F117EC2EA600756914 /* IntroLayer.m in Sources */,
+				337790EB17EC2EA600756914 /* AppDelegate.mm in Sources */,
+				337790EE17EC2EA600756914 /* HelloWorldLayer.mm in Sources */,
+				337790F117EC2EA600756914 /* IntroLayer.mm in Sources */,
+				331E46E617ED2D72001D2789 /* MatchItScene.mm in Sources */,
+				331E46EE17ED3793001D2789 /* CCNodeHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		331E470117ED4D54001D2789 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 331E46FC17ED4D39001D2789 /* TexturePacker */;
+			targetProxy = 331E470017ED4D54001D2789 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		331E46FE17ED4D39001D2789 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		331E46FF17ED4D39001D2789 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		331E470A17ED785E001D2789 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		331E470B17ED785E001D2789 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		331E470E17ED78F0001D2789 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		331E470F17ED78F0001D2789 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		337790F217EC2EA600756914 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1029,6 +1313,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				SDKROOT = iphoneos;
@@ -1040,6 +1325,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1048,6 +1337,7 @@
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				SDKROOT = iphoneos;
@@ -1059,6 +1349,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1070,6 +1362,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1078,6 +1371,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = DoubleScreenMatchIt/Prefix.pch;
@@ -1088,6 +1383,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1096,6 +1392,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		331E46FD17ED4D39001D2789 /* Build configuration list for PBXLegacyTarget "TexturePacker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				331E46FE17ED4D39001D2789 /* Debug */,
+				331E46FF17ED4D39001D2789 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		331E470917ED785E001D2789 /* Build configuration list for PBXLegacyTarget "CleanArtProduction" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				331E470A17ED785E001D2789 /* Debug */,
+				331E470B17ED785E001D2789 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		331E470D17ED78F0001D2789 /* Build configuration list for PBXLegacyTarget "PreBuild" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				331E470E17ED78F0001D2789 /* Debug */,
+				331E470F17ED78F0001D2789 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		33778F5717EC2EA500756914 /* Build configuration list for PBXProject "DoubleScreenMatchIt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
