@@ -32,17 +32,15 @@
         
         srand(seed);
         
-        _matchButtonSprites = [[CCArray alloc] initWithCapacity:MATCH_BUTTON_COUNT];
-        
         //5 is temp number
         NSMutableArray *buttonArray = [NSMutableArray arrayWithCapacity:MATCH_BUTTON_COUNT + 5];
         
         CGSize totalSize = CGSizeMake(MATCH_BUTTON_WIDTH * MATCH_BUTTON_ROWS, MATCH_BUTTON_HEIGHT * MATCH_BUTTON_COLS);
 //        CGPoint initPosition = [g_CCNodeHelper positionAtCenterOfScreenBySize:totalSize];
         NSDictionary *posDict = [infoDict objectForKey:@"MainAreaPosition"];
-        CGPoint point = ccp([[posDict objectForKey:@"X"] floatValue],
+        CGPoint gameAreaPosition = ccp([[posDict objectForKey:@"X"] floatValue],
                             [[posDict objectForKey:@"Y"] floatValue]);
-        CGPoint initPosition = [g_CCNodeHelper getInitPositionByPoint:point andSize:totalSize];
+        CGPoint initPosition = [g_CCNodeHelper getInitPositionByPoint:gameAreaPosition andSize:totalSize];
         
         [self setupMatchButtonFileNames];
         
@@ -52,41 +50,58 @@
         for (int i = 0; i < MATCH_BUTTON_ROWS; i++) {
             for (int j = 0; j < MATCH_BUTTON_COLS; j++) {
                 
-                int imageIndex = randomShuffleArray[i][j];
-                NSString *imageFile = [_matchButtonFileNames objectAtIndex:imageIndex];
+                int imageIndex ;
+                CCSprite *sprite;
+                BOOL visible ;
                 
-                CCSprite *sprite = [CCSprite spriteWithSpriteFrameName:imageFile];
+                if (i == 0 || i == MATCH_BUTTON_ROWS - 1
+                    || j == 0 || j == MATCH_BUTTON_COLS - 1) {
+                    
+                    imageIndex = [_matchButtonFileNames count];
+                    sprite = [CCSprite spriteWithSpriteFrameName:@"emptyButton.png"];
+                    visible = NO;
+                    
+                } else {
+                    
+                    imageIndex = randomShuffleArray[i][j];
+                    sprite = [CCSprite spriteWithSpriteFrameName:[_matchButtonFileNames objectAtIndex:imageIndex]];
+                    visible = YES;
+                }
+                
                 CCMenuItemImage *item = [CCMenuItemImage itemWithNormalSprite:sprite selectedSprite:nil block:^(id sender) {
                     
                     [self clickWithButton:sender];
                 }];
                 
+                item.visible = visible;
                 item.tag = imageIndex;
-                
                 item.position = ccp(initPosition.x + i * MATCH_BUTTON_WIDTH,
                                     initPosition.y + j * MATCH_BUTTON_HEIGHT);
                 item.anchorPoint = ccp(0, 0);
                 
                 [buttonArray addObject:item];
                 
-                item.userData = (void *)imageFile;
                 _matchButtons[i][j] = item;
             }
         }
-        
-        CCMenuItemImage *buttonTips = [CCMenuItemImage itemWithNormalImage:@"button_tips.png" selectedImage:@"button_tips.png" target:self selector:@selector(tip)];
-        CGSize winSize = [g_CCNodeHelper winSize];
-        buttonTips.position = ccp(winSize.width * 3 / 4, winSize.height * 1 / 6);
-        [buttonArray addObject:buttonTips];
-        
-        CCMenuItemImage *buttonReset = [CCMenuItemImage itemWithNormalImage:@"button_reset.png" selectedImage:@"button_reset.png" target:self selector:@selector(reset)];
-        buttonReset.position = ccp(winSize.width * 3 / 4, winSize.height * 2 / 6);
-        [buttonArray addObject:buttonReset];
+//
+//        CCMenuItemImage *buttonTips = [CCMenuItemImage itemWithNormalImage:@"button_tips.png" selectedImage:@"button_tips.png" target:self selector:@selector(tip)];
+//        CGSize winSize = [g_CCNodeHelper winSize];
+//        buttonTips.position = ccp(winSize.width * 3 / 4, winSize.height * 1 / 6);
+//        [buttonArray addObject:buttonTips];
+//        
+//        CCMenuItemImage *buttonReset = [CCMenuItemImage itemWithNormalImage:@"button_reset.png" selectedImage:@"button_reset.png" target:self selector:@selector(reset)];
+//        buttonReset.position = ccp(winSize.width * 3 / 4, winSize.height * 2 / 6);
+//        [buttonArray addObject:buttonReset];
         
         CCSprite *bg = [CCSprite spriteWithFile:@"background.png" ];
         bg.position = [g_CCNodeHelper positionAtLeftBottomOfScreen];
         bg.anchorPoint = [g_CCNodeHelper anchorAtLeftBottomOfScreen];
         [self addChild:bg];
+        
+        CCSprite *bg2 = [CCSprite spriteWithFile:@"background2.png"];
+        bg2.position = gameAreaPosition;
+        [bg addChild:bg2];
         
         CCMenu *menu = [CCMenu menuWithArray:buttonArray];
         menu.position = [g_CCNodeHelper positionAtLeftBottomOfScreen];
@@ -146,7 +161,6 @@
 
 - (void)dealloc
 {
-    [_matchButtonSprites release];
     [_matchButtonFileNames release];
     [super dealloc];
 }
@@ -194,6 +208,8 @@
     }
     
     if (button.visible == YES) {
+        _beforeClickedImage.opacity = OPACITY_FULL;
+        button.opacity = OPACITY_HALF;
         _beforeClickedImage = button;
     }
 }
@@ -276,7 +292,7 @@
             //double corner check
             
             //x axis scan
-            for(int x = 0; x < MATCH_BUTTON_COLS; x++) {
+            for(int x = 0; x < MATCH_BUTTON_ROWS; x++) {
                 
                 PosIndex posIndex5 = {x, posIndex1.y};
                 PosIndex posIndex6 = {x, posIndex2.y};
@@ -291,7 +307,7 @@
                 }
             }
             //y axis scan
-            for(int y = 0; y < MATCH_BUTTON_ROWS; y++) {
+            for(int y = 0; y < MATCH_BUTTON_COLS; y++) {
                 
                 PosIndex posIndex5 = {posIndex1.x, y};
                 PosIndex posIndex6 = {posIndex2.x, y};

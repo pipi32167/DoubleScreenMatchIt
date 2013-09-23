@@ -29,6 +29,8 @@
         [g_Audio preloadEffect:@"clear0.wav"];
         [g_Audio playBackgroundMusic:@"bg0.wav"];
         
+        [[[CCDirector sharedDirector] view] setMultipleTouchEnabled:YES];
+        
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"UI.plist"];
         
         NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"Config" ofType:@"plist"];

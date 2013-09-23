@@ -2,24 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>GameAreaInfo1</key>
-	<dict>
-		<key>MainAreaPosition</key>
-		<dict>
-			<key>X</key>
-			<integer>192</integer>
-			<key>Y</key>
-			<integer>256</integer>
-		</dict>
-	</dict>
 	<key>GameAreaInfo2</key>
 	<dict>
 		<key>MainAreaPosition</key>
 		<dict>
 			<key>X</key>
-			<integer>256</integer>
+			<integer>384</integer>
 			<key>Y</key>
-			<integer>256</integer>
+			<integer>224</integer>
 		</dict>
 	</dict>
 	<key>MatchButtonInfo</key>
