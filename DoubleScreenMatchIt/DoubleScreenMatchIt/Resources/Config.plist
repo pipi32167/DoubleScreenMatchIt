@@ -20,6 +20,8 @@
 		<string>gur-project-%@.png</string>
 		<key>FileName</key>
 		<string>katongxiaodongwu_%02d.png</string>
+		<key>FileName5</key>
+		<string>build%02d.png</string>
 		<key>BeginId</key>
 		<integer>1</integer>
 		<key>EndId</key>

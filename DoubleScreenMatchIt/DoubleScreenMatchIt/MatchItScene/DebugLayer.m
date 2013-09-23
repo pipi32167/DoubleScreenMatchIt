@@ -9,7 +9,8 @@
 #import "DebugLayer.h"
 #import "cocos2d.h"
 #import "CCNodeHelper.h"
-#import "IntroLayer.h"
+//#import "IntroLayer.h"
+#import "MatchItScene.h"
 
 @implementation DebugLayer
 
@@ -37,7 +38,7 @@
 
 -(void)restart
 {
-    [[CCDirector sharedDirector] replaceScene:[IntroLayer scene]];
+    [[CCDirector sharedDirector] replaceScene:[MatchItScene node]];
 }
 
 @end

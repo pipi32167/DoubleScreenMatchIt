@@ -7,7 +7,7 @@
 //
 
 #import "MatchItLayer.h"
-#import "cocos2d.h"
+
 #import "Cocos2dHelper.h"
 
 @implementation MatchItLayer
@@ -64,9 +64,13 @@
                 } else {
                     
                     imageIndex = randomShuffleArray[i-1][j-1];
-                    sprite = [CCSprite spriteWithSpriteFrameName:[_matchButtonFileNames objectAtIndex:imageIndex]];
+                    NSLog(@"%d, count:%d", imageIndex, [_matchButtonFileNames count]);
+                    NSAssert(imageIndex < [_matchButtonFileNames count], @"image index should not over limit");
+                    NSString *fileName = [_matchButtonFileNames objectAtIndex:imageIndex];
+                    sprite = [CCSprite spriteWithSpriteFrameName:fileName];
                     visible = YES;
                 }
+                
                 
                 CCMenuItemImage *item = [CCMenuItemImage itemWithNormalSprite:sprite selectedSprite:nil block:^(id sender) {
                     
@@ -86,10 +90,10 @@
         }
         
         CGSize winSize = [g_CCNodeHelper winSize];
-//
-//        CCMenuItemImage *buttonTips = [CCMenuItemImage itemWithNormalImage:@"button_tips.png" selectedImage:@"button_tips.png" target:self selector:@selector(tip)];
-//        buttonTips.position = ccp(winSize.width * 3 / 4, winSize.height * 1 / 6);
-//        [buttonArray addObject:buttonTips];
+
+        CCMenuItemImage *buttonTips = [CCMenuItemImage itemWithNormalImage:@"button_tip.png" selectedImage:@"button_tip_clicked.png" target:self selector:@selector(tip)];
+        buttonTips.position = ccp(winSize.width - 32, 100);
+        [buttonArray addObject:buttonTips];
         
         CCMenuItemImage *buttonReset = [CCMenuItemImage itemWithNormalImage:@"button_reset.png" selectedImage:@"button_reset_clicked.png" target:self selector:@selector(reset)];
         buttonReset.position = ccp(winSize.width - 32, 50);
@@ -109,13 +113,57 @@
         //        menu.anchorPoint = [g_CCNodeHelper anchorAtCenterOfScreen];
         [self addChild:menu];
         
+        _notClearTimeSpan = 0;
+        
+        [self schedule:@selector(tick:)];
     }
     return self;
 }
 
+-(void)tick:(ccTime)dt
+{
+    _notClearTimeSpan += dt;
+    if (_notClearTimeSpan >= SHOW_TIP_TIME) {
+        
+        _notClearTimeSpan = 0;
+        [self tip];
+    }
+}
+
 -(void)tip
 {
+    CCMenuItemImage *button1, *button2;
+    for (int i = 0; i < MATCH_BUTTON_ROWS; i++) {
+        for (int j = 0; j < MATCH_BUTTON_COLS; j++) {
+            for (int k = i; k < MATCH_BUTTON_ROWS; k++) {
+                for (int l = j; l < MATCH_BUTTON_COLS; l++) {
+                    
+                    button1 = _matchButtons[i][j];
+                    button2 = _matchButtons[k][l];
+                    
+                    if ([self button:button1 canMatch:button2]) {
+                        
+                        [self buttonBlink:button1];
+                        [self buttonBlink:button2];
+                        
+                        return ;
+                    }
+                }
+            }
+        }
+    }
+}
+
+-(void)buttonBlink:(CCMenuItemImage *)button
+{
+//    CCBlink *blink = [CCBlink actionWithDuration:1 blinks:3];
+//    [button runAction:blink];
     
+    CCFadeIn *fadeIn = [CCFadeIn actionWithDuration:0.2];
+    CCFadeOut *fadeOut = [CCFadeOut actionWithDuration:0.2];
+    CCSequence *seq = [CCSequence actions:fadeOut, fadeIn, nil];
+    CCRepeat *repeat = [CCRepeat actionWithAction:seq times:3];
+    [button runAction:repeat];
 }
 
 -(void)reset
@@ -185,6 +233,7 @@
     for (int i = 0; i < length; i+=2) {
         
         array[i] = array[i + 1] = rand() % count ;
+//        array[i] = array[i + 1] = i / 2;
     }
     
     for (int shuffleCount = 0; shuffleCount < 3; shuffleCount ++) {
@@ -235,6 +284,7 @@
         
         _beforeClickedImage.visible = NO;
         button.visible = NO;
+        _notClearTimeSpan = 0;
         clear = YES;
     }
     
@@ -251,6 +301,34 @@
         button.opacity = OPACITY_HALF;
         _beforeClickedImage = button;
     }
+    
+    if ([self haveButtonsToClear] == NO) {
+        
+        [self reset];
+    }
+}
+
+-(BOOL) haveButtonsToClear
+{
+    
+    CCMenuItemImage *button1, *button2;
+    for (int i = 0; i < MATCH_BUTTON_ROWS; i++) {
+        for (int j = 0; j < MATCH_BUTTON_COLS; j++) {
+            for (int k = i; k < MATCH_BUTTON_ROWS; k++) {
+                for (int l = j; l < MATCH_BUTTON_COLS; l++) {
+                    
+                    button1 = _matchButtons[i][j];
+                    button2 = _matchButtons[k][l];
+                    
+                    if ([self button:button1 canMatch:button2]) {
+                        return YES;
+                    }
+                }
+            }
+        }
+    }
+    
+    return NO;
 }
 
 - (BOOL)isNoBlockBetween:(PosIndex)posIndex1 andPosIndex:(PosIndex)posIndex2

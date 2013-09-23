@@ -6,15 +6,15 @@
 //
 //
 
-#import "CCLayer.h"
-
-@class CCMenuItemImage;
+#import "cocos2d.h"
 
 enum DIFFICULTY {
     DIFFICULTY_EASY = 0,
     DIFFICULTY_NORMAL,
     DIFFICULTY_HARD,
     };
+
+#define SHOW_TIP_TIME 3
 
 #define OPACITY_FULL 255
 #define OPACITY_HALF OPACITY_FULL / 2
@@ -44,6 +44,7 @@ typedef struct PosIndex
     CCMenuItemImage *_matchButtons[MATCH_BUTTON_ROWS][MATCH_BUTTON_COLS];
     CCArray *_matchButtonFileNames;
     CCMenuItemImage *_beforeClickedImage ;
+    ccTime _notClearTimeSpan;
 }
 
 - (id)initWithRandSeed:(unsigned)seed andDict:(NSDictionary *)infoDict;
