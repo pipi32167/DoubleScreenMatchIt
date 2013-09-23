@@ -11,6 +11,7 @@
 #import "MatchItLayer.h"
 //#import "CCNodeHelper.h"
 #import "Cocos2dHelper.h"
+#import "DebugLayer.h"
 
 @implementation MatchItScene
 
@@ -35,23 +36,25 @@
         
         NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"Config" ofType:@"plist"];
         NSDictionary *configDict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-        NSDictionary *area1Info = [configDict objectForKey:@"GameAreaInfo1"];
+//        NSDictionary *area1Info = [configDict objectForKey:@"GameAreaInfo1"];
         NSDictionary *area2Info = [configDict objectForKey:@"GameAreaInfo2"];
         
         unsigned seed = time(NULL);
-        CGSize winSize = [g_CCNodeHelper winSize];
+//        CGSize winSize = [g_CCNodeHelper winSize];
         
         _upLayer = [[MatchItLayer alloc] initWithRandSeed:seed andDict:area2Info];
 //        _upLayer.position = ccp(0, winSize.height/4);
-        [self addChild:_upLayer];
+        [self addChild:_upLayer z:0];
         _upLayer.rotation = 180;
         [_upLayer release];
         
-        
         _downLayer = [[MatchItLayer alloc] initWithRandSeed:seed andDict:area2Info];
 //        _downLayer.position = ccp(0, -winSize.height/4);
-        [self addChild:_downLayer];
+        [self addChild:_downLayer z:0];
         [_downLayer release];
+        
+        [self addChild:[DebugLayer node] z:1];
+        
     }
     return self;
 }
