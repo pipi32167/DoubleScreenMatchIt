@@ -42,13 +42,13 @@
         unsigned seed = time(NULL);
 //        CGSize winSize = [g_CCNodeHelper winSize];
         
-        _upLayer = [[MatchItLayer alloc] initWithRandSeed:seed andDict:area2Info];
+        _upLayer = [[MatchItLayer alloc] initWithRandSeed:seed andDict:area2Info andScene:self];
 //        _upLayer.position = ccp(0, winSize.height/4);
         [self addChild:_upLayer z:0];
         _upLayer.rotation = 180;
         [_upLayer release];
         
-        _downLayer = [[MatchItLayer alloc] initWithRandSeed:seed andDict:area2Info];
+        _downLayer = [[MatchItLayer alloc] initWithRandSeed:seed andDict:area2Info andScene:self];
 //        _downLayer.position = ccp(0, -winSize.height/4);
         [self addChild:_downLayer z:0];
         [_downLayer release];
@@ -63,6 +63,18 @@
 - (void)dealloc
 {
     [super dealloc];
+}
+
+-(void)winnerIs:(MatchItLayer *)layer
+{
+    if (layer == _downLayer) {
+        
+        [_downLayer gameWin];
+        [_upLayer gameLose];
+    } else {
+        [_downLayer gameLose];
+        [_upLayer gameWin];
+    }
 }
 
 @end

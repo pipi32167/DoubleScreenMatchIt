@@ -8,6 +8,8 @@
 
 #import "cocos2d.h"
 
+@class MatchItScene;
+
 enum DIFFICULTY {
     DIFFICULTY_EASY = 0,
     DIFFICULTY_NORMAL,
@@ -15,6 +17,10 @@ enum DIFFICULTY {
     };
 
 #define SHOW_TIP_TIME 3
+
+#define CLEAR_BONUS 100
+#define COMBO_BONUS 100
+#define COMBO_TIME 5
 
 #define OPACITY_FULL 255
 #define OPACITY_HALF OPACITY_FULL / 2
@@ -29,8 +35,8 @@ enum DIFFICULTY {
 #define MATCH_EMPTY_EDGE 1
 //#define MATCH_BUTTON_ROWS 20
 //#define MATCH_BUTTON_COLS 12
-#define MATCH_BUTTON_ROWS 14
-#define MATCH_BUTTON_COLS 8
+#define MATCH_BUTTON_ROWS 8
+#define MATCH_BUTTON_COLS 4
 #define MATCH_BUTTON_COUNT MATCH_BUTTON_ROWS * MATCH_BUTTON_COLS
 
 typedef struct PosIndex
@@ -45,9 +51,22 @@ typedef struct PosIndex
     CCArray *_matchButtonFileNames;
     CCMenuItemImage *_beforeClickedImage ;
     ccTime _notClearTimeSpan;
+    
+    ccTime _comboTimeSpan;
+    int _comboTimes;
+    int _bonus;
+    CCLabelAtlas *_bonusLabel;
+    
+    MatchItScene *_scene;
+    
+    CGPoint _gameAreaPosition;
 }
 
-- (id)initWithRandSeed:(unsigned)seed andDict:(NSDictionary *)infoDict;
+- (id)initWithRandSeed:(unsigned)seed andDict:(NSDictionary *)infoDict andScene:(MatchItScene *)scene;
+
+-(void)gameWin;
+
+-(void)gameLose;
 
 + (id)node;
 

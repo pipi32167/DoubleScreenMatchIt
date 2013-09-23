@@ -16,6 +16,8 @@
     MatchItLayer* _downLayer;
 }
 
+-(void)winnerIs:(MatchItLayer *)layer;
+
 +(id) node;
 
 @end

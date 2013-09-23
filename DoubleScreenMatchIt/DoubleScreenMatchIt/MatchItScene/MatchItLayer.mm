@@ -25,10 +25,12 @@
     return  scene;
 }
 
-- (id)initWithRandSeed:(unsigned)seed andDict:(NSDictionary *)infoDict
+- (id)initWithRandSeed:(unsigned)seed andDict:(NSDictionary *)infoDict andScene:(MatchItScene *)scene
 {
     self = [super init];
     if (self) {
+        
+        _scene = scene;
         
         srand(seed);
         
@@ -38,9 +40,9 @@
         CGSize totalSize = CGSizeMake(MATCH_BUTTON_WIDTH * MATCH_BUTTON_ROWS, MATCH_BUTTON_HEIGHT * MATCH_BUTTON_COLS);
 //        CGPoint initPosition = [g_CCNodeHelper positionAtCenterOfScreenBySize:totalSize];
         NSDictionary *posDict = [infoDict objectForKey:@"MainAreaPosition"];
-        CGPoint gameAreaPosition = ccp([[posDict objectForKey:@"X"] floatValue],
+        _gameAreaPosition = ccp([[posDict objectForKey:@"X"] floatValue],
                             [[posDict objectForKey:@"Y"] floatValue]);
-        CGPoint initPosition = [g_CCNodeHelper getInitPositionByPoint:gameAreaPosition andSize:totalSize];
+        CGPoint initPosition = [g_CCNodeHelper getInitPositionByPoint:_gameAreaPosition andSize:totalSize];
         
         [self setupMatchButtonFileNames];
         
@@ -105,7 +107,7 @@
         [self addChild:bg];
         
         CCSprite *bg2 = [CCSprite spriteWithFile:@"background2.png"];
-        bg2.position = gameAreaPosition;
+        bg2.position = _gameAreaPosition;
         [bg addChild:bg2];
         
         CCMenu *menu = [CCMenu menuWithArray:buttonArray];
@@ -114,6 +116,12 @@
         [self addChild:menu];
         
         _notClearTimeSpan = 0;
+        _comboTimeSpan = COMBO_TIME;
+        _bonus = 0;
+        
+        _bonusLabel = [CCLabelAtlas labelWithString:@"000" charMapFile:@"fps_images.png" itemWidth:12 itemHeight:32 startCharMap:'.'];
+        _bonusLabel.position = ccp(winSize.width / 2, winSize.height / 2 - 50);
+        [self addChild:_bonusLabel];
         
         [self schedule:@selector(tick:)];
     }
@@ -127,6 +135,11 @@
         
         _notClearTimeSpan = 0;
         [self tip];
+    }
+    
+    if (_comboTimeSpan < COMBO_TIME) {
+        
+        _comboTimeSpan += dt;
     }
 }
 
@@ -272,6 +285,25 @@
     return {-1, -1};
 }
 
+-(void)addBonus
+{
+    int normalBonus = CLEAR_BONUS;
+    int comboBonus = 0;
+    if (_comboTimeSpan < COMBO_TIME) {
+        
+        _comboTimes ++;
+        comboBonus = _comboTimes * COMBO_BONUS;
+
+    } else {
+        
+        _comboTimes = 0;
+    }
+    
+    _bonus += normalBonus + comboBonus;
+    _comboTimeSpan = 0;
+    [_bonusLabel setString:[NSString stringWithFormat:@"%d", _bonus]];
+}
+
 - (void)clickWithButton:(CCMenuItemImage *)button
 {
     PosIndex posIndex = [self getButtonIndex:button];
@@ -285,6 +317,9 @@
         _beforeClickedImage.visible = NO;
         button.visible = NO;
         _notClearTimeSpan = 0;
+        
+        [self addBonus];
+        
         clear = YES;
     }
     
@@ -306,6 +341,47 @@
         
         [self reset];
     }
+    
+    if ([self isWin]) {
+        
+        [_scene winnerIs:self];
+    }
+}
+
+-(void)gameWin
+{
+    [self gameEndWithPic:@"win.png"];
+}
+
+-(void)gameLose
+{
+    [self gameEndWithPic:@"lose.png"];
+}
+
+-(void)gameEndWithPic:(NSString *)fileName
+{
+    [self removeAllChildrenWithCleanup:YES];
+    [self unschedule:@selector(tick:)];
+    
+    CCMenuItemImage *item = [CCMenuItemImage itemWithNormalImage:fileName selectedImage:fileName];
+    item.position = _gameAreaPosition;
+    CCMenu *menu = [CCMenu menuWithItems:item, nil];
+    menu.position = [g_CCNodeHelper positionAtLeftBottomOfScreen];
+    [self addChild:menu];
+}
+
+-(BOOL) isWin
+{
+    for (int i = 0; i < MATCH_BUTTON_ROWS; i++) {
+        for (int j = 0; j < MATCH_BUTTON_COLS; j++) {
+            
+            if (_matchButtons[i][j].visible == YES) {
+                return NO;
+            }
+        }
+    }
+    
+    return YES;
 }
 
 -(BOOL) haveButtonsToClear
