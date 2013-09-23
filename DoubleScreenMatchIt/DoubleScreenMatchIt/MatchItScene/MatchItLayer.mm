@@ -44,8 +44,8 @@
         
         [self setupMatchButtonFileNames];
         
-        int randomShuffleArray[MATCH_BUTTON_ROWS][MATCH_BUTTON_COLS] = {0};
-        [self setupRandomShuffleArray:*randomShuffleArray withLength:(MATCH_BUTTON_ROWS * MATCH_BUTTON_COLS)];
+        int randomShuffleArray[MATCH_BUTTON_ROWS - 2][MATCH_BUTTON_COLS - 2] = {0};
+        [self setupRandomShuffleArray:*randomShuffleArray withLength:((MATCH_BUTTON_ROWS - 2) * (MATCH_BUTTON_COLS - 2))];
         
         for (int i = 0; i < MATCH_BUTTON_ROWS; i++) {
             for (int j = 0; j < MATCH_BUTTON_COLS; j++) {
@@ -63,7 +63,7 @@
                     
                 } else {
                     
-                    imageIndex = randomShuffleArray[i][j];
+                    imageIndex = randomShuffleArray[i-1][j-1];
                     sprite = [CCSprite spriteWithSpriteFrameName:[_matchButtonFileNames objectAtIndex:imageIndex]];
                     visible = YES;
                 }
@@ -136,7 +136,8 @@
     _matchButtonFileNames = [[CCArray alloc] initWithCapacity:(endId - beginId + 1)];
     for (int i  = beginId; i <= endId; i++) {
         
-        [_matchButtonFileNames addObject:[NSString stringWithFormat:imageFile, [NSNumber numberWithInt:i]]];
+        NSString *fileName = [NSString stringWithFormat:imageFile, i];
+        [_matchButtonFileNames addObject:fileName];
     }
 }
 
