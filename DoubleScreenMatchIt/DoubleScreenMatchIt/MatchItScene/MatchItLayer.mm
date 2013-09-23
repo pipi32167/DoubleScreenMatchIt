@@ -84,15 +84,16 @@
                 _matchButtons[i][j] = item;
             }
         }
+        
+        CGSize winSize = [g_CCNodeHelper winSize];
 //
 //        CCMenuItemImage *buttonTips = [CCMenuItemImage itemWithNormalImage:@"button_tips.png" selectedImage:@"button_tips.png" target:self selector:@selector(tip)];
-//        CGSize winSize = [g_CCNodeHelper winSize];
 //        buttonTips.position = ccp(winSize.width * 3 / 4, winSize.height * 1 / 6);
 //        [buttonArray addObject:buttonTips];
-//        
-//        CCMenuItemImage *buttonReset = [CCMenuItemImage itemWithNormalImage:@"button_reset.png" selectedImage:@"button_reset.png" target:self selector:@selector(reset)];
-//        buttonReset.position = ccp(winSize.width * 3 / 4, winSize.height * 2 / 6);
-//        [buttonArray addObject:buttonReset];
+        
+        CCMenuItemImage *buttonReset = [CCMenuItemImage itemWithNormalImage:@"button_reset.png" selectedImage:@"button_reset_clicked.png" target:self selector:@selector(reset)];
+        buttonReset.position = ccp(winSize.width - 32, 50);
+        [buttonArray addObject:buttonReset];
         
         CCSprite *bg = [CCSprite spriteWithFile:@"background.png" ];
         bg.position = [g_CCNodeHelper positionAtLeftBottomOfScreen];
@@ -120,6 +121,43 @@
 -(void)reset
 {
     
+    CCArray *visibleButtons = [CCArray arrayWithCapacity:MATCH_BUTTON_COUNT];
+    for (int i = 0; i < MATCH_BUTTON_ROWS; i++) {
+        for (int j = 0; j < MATCH_BUTTON_COLS; j++) {
+            
+            if (_matchButtons[i][j].visible) {
+                
+                [visibleButtons addObject:_matchButtons[i][j]];
+            }
+        }
+    }
+    
+    for (int i = 0; i < 3; i++) {
+        [self randomShuffleArray:visibleButtons block:^(CCMenuItemImage *button1, CCMenuItemImage *button2) {
+            CGPoint temp = button1.position;
+            button1.position = button2.position;
+            button2.position = temp;
+            
+            PosIndex tempIndex1 = [self getButtonIndex:button1];
+            PosIndex tempIndex2 = [self getButtonIndex:button2];
+            _matchButtons[tempIndex1.x][tempIndex1.y] = button2;
+            _matchButtons[tempIndex2.x][tempIndex2.y] = button1;
+        }];
+    }
+    
+}
+
+-(void)randomShuffleArray:(CCArray *)array
+                    block:(void(^)(CCMenuItemImage *button1, CCMenuItemImage *button2))block
+{
+    int count = [array count];
+    int randIndex;
+    for (int i = 0; i < count; i++) {
+        randIndex = rand() % count;
+        CCMenuItemImage *button1 = [array objectAtIndex:i];
+        CCMenuItemImage *button2 = [array objectAtIndex:randIndex];
+        block(button1, button2);
+    }
 }
 
 - (void)setupMatchButtonFileNames

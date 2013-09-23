@@ -11,6 +11,9 @@
 		331E470617ED4DE4001D2789 /* UI.plist in Resources */ = {isa = PBXBuildFile; fileRef = 331E470417ED4DE4001D2789 /* UI.plist */; };
 		331E470717ED4DE4001D2789 /* UI.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 331E470517ED4DE4001D2789 /* UI.pvr.ccz */; };
 		331E471517ED79B0001D2789 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 331E471417ED79B0001D2789 /* Config.plist */; };
+		332154A617EFED99008FCACB /* button_reset.png in Resources */ = {isa = PBXBuildFile; fileRef = 332154A417EFED99008FCACB /* button_reset.png */; };
+		332154A717EFED99008FCACB /* button_tip.png in Resources */ = {isa = PBXBuildFile; fileRef = 332154A517EFED99008FCACB /* button_tip.png */; };
+		332154A917EFEE83008FCACB /* button_reset_clicked.png in Resources */ = {isa = PBXBuildFile; fileRef = 332154A817EFEE83008FCACB /* button_reset_clicked.png */; };
 		332971F317EE907B0081773A /* MatchItLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 332971F217EE907B0081773A /* MatchItLayer.mm */; };
 		332971F617EE90B80081773A /* MatchItScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 332971F517EE90B80081773A /* MatchItScene.mm */; };
 		33778F6017EC2EA500756914 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33778F5F17EC2EA500756914 /* QuartzCore.framework */; };
@@ -140,8 +143,6 @@
 		337790EE17EC2EA600756914 /* HelloWorldLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 337790ED17EC2EA600756914 /* HelloWorldLayer.mm */; };
 		337790F117EC2EA600756914 /* IntroLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 337790F017EC2EA600756914 /* IntroLayer.mm */; };
 		33BC811217EEEE1600E7C81E /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 33BC811117EEEE1600E7C81E /* background2.png */; };
-		33F8072517EE9C81009E2539 /* button_tips.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F8072317EE9C81009E2539 /* button_tips.png */; };
-		33F8072617EE9C81009E2539 /* button_reset.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F8072417EE9C81009E2539 /* button_reset.png */; };
 		33F8072817EEABFC009E2539 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F8072717EEABFC009E2539 /* background.png */; };
 		33F8072E17EED08F009E2539 /* bg0.wav in Resources */ = {isa = PBXBuildFile; fileRef = 33F8072A17EED08F009E2539 /* bg0.wav */; };
 		33F8072F17EED08F009E2539 /* clear0.wav in Resources */ = {isa = PBXBuildFile; fileRef = 33F8072B17EED08F009E2539 /* clear0.wav */; };
@@ -165,6 +166,9 @@
 		331E470417ED4DE4001D2789 /* UI.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UI.plist; sourceTree = "<group>"; };
 		331E470517ED4DE4001D2789 /* UI.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = UI.pvr.ccz; sourceTree = "<group>"; };
 		331E471417ED79B0001D2789 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Config.plist; path = Resources/Config.plist; sourceTree = "<group>"; };
+		332154A417EFED99008FCACB /* button_reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_reset.png; sourceTree = "<group>"; };
+		332154A517EFED99008FCACB /* button_tip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_tip.png; sourceTree = "<group>"; };
+		332154A817EFEE83008FCACB /* button_reset_clicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_reset_clicked.png; sourceTree = "<group>"; };
 		332971F117EE907B0081773A /* MatchItLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MatchItLayer.h; path = MatchItScene/MatchItLayer.h; sourceTree = "<group>"; };
 		332971F217EE907B0081773A /* MatchItLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MatchItLayer.mm; path = MatchItScene/MatchItLayer.mm; sourceTree = "<group>"; };
 		332971F417EE90B80081773A /* MatchItScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MatchItScene.h; path = MatchItScene/MatchItScene.h; sourceTree = "<group>"; };
@@ -432,8 +436,6 @@
 		337790EF17EC2EA600756914 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		337790F017EC2EA600756914 /* IntroLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = IntroLayer.mm; sourceTree = "<group>"; };
 		33BC811117EEEE1600E7C81E /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
-		33F8072317EE9C81009E2539 /* button_tips.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_tips.png; sourceTree = "<group>"; };
-		33F8072417EE9C81009E2539 /* button_reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_reset.png; sourceTree = "<group>"; };
 		33F8072717EEABFC009E2539 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		33F8072A17EED08F009E2539 /* bg0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bg0.wav; sourceTree = "<group>"; };
 		33F8072B17EED08F009E2539 /* clear0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clear0.wav; sourceTree = "<group>"; };
@@ -913,10 +915,11 @@
 		33F8072217EE9C11009E2539 /* DebugPic */ = {
 			isa = PBXGroup;
 			children = (
+				332154A417EFED99008FCACB /* button_reset.png */,
+				332154A517EFED99008FCACB /* button_tip.png */,
+				332154A817EFEE83008FCACB /* button_reset_clicked.png */,
 				33BC811117EEEE1600E7C81E /* background2.png */,
 				33F8072717EEABFC009E2539 /* background.png */,
-				33F8072317EE9C81009E2539 /* button_tips.png */,
-				33F8072417EE9C81009E2539 /* button_reset.png */,
 			);
 			path = DebugPic;
 			sourceTree = "<group>";
@@ -1037,23 +1040,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				33778F7417EC2EA500756914 /* Default.png in Resources */,
-				33F8072617EE9C81009E2539 /* button_reset.png in Resources */,
 				33F8073017EED08F009E2539 /* click0.wav in Resources */,
 				33778F7617EC2EA500756914 /* Default-Landscape~ipad.png in Resources */,
+				332154A617EFED99008FCACB /* button_reset.png in Resources */,
 				33BC811217EEEE1600E7C81E /* background2.png in Resources */,
 				33778F7817EC2EA500756914 /* fps_images.png in Resources */,
 				33778F7A17EC2EA500756914 /* fps_images-hd.png in Resources */,
 				33778F7C17EC2EA500756914 /* fps_images-ipadhd.png in Resources */,
 				33778F7E17EC2EA500756914 /* Icon-72.png in Resources */,
 				33778F8017EC2EA500756914 /* Icon-Small-50.png in Resources */,
+				332154A917EFEE83008FCACB /* button_reset_clicked.png in Resources */,
 				33F8072E17EED08F009E2539 /* bg0.wav in Resources */,
 				33F8072F17EED08F009E2539 /* clear0.wav in Resources */,
 				33778F8217EC2EA500756914 /* Icon-Small.png in Resources */,
 				33778F8417EC2EA500756914 /* Icon-Small@2x.png in Resources */,
-				33F8072517EE9C81009E2539 /* button_tips.png in Resources */,
 				33F8072817EEABFC009E2539 /* background.png in Resources */,
 				33778F8617EC2EA500756914 /* Icon.png in Resources */,
 				33778F8817EC2EA500756914 /* Icon@2x.png in Resources */,
+				332154A717EFED99008FCACB /* button_tip.png in Resources */,
 				33778F8B17EC2EA500756914 /* iTunesArtwork in Resources */,
 				337790C917EC2EA600756914 /* ChangeLog in Resources */,
 				331E470617ED4DE4001D2789 /* UI.plist in Resources */,
