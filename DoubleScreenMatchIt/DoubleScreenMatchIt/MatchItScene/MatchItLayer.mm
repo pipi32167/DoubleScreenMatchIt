@@ -7,8 +7,8 @@
 //
 
 #import "MatchItLayer.h"
-
 #import "Cocos2dHelper.h"
+#import "ResourceConfig.h"
 
 @implementation MatchItLayer
 
@@ -324,10 +324,10 @@
     }
     
     if (clear) {
-        [g_Audio playEffect:@"clear0.wav"];
+        [g_Audio playEffect:SFX_MATCH_COMBO];
     } else {
         if (button.visible == YES) {
-            [g_Audio playEffect:@"click0.wav"];
+            [g_Audio playEffect:SFX_MATCH_CLICK];
         }
     }
     

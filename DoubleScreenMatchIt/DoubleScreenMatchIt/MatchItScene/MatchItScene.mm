@@ -12,6 +12,7 @@
 //#import "CCNodeHelper.h"
 #import "Cocos2dHelper.h"
 #import "DebugLayer.h"
+#import "ResourceConfig.h"
 
 @implementation MatchItScene
 
@@ -25,10 +26,10 @@
     self = [super init];
     if (self) {
         
-        [g_Audio preloadBackgroundMusic:@"bg0.wav"];
-        [g_Audio preloadEffect:@"click0.wav"];
-        [g_Audio preloadEffect:@"clear0.wav"];
-        [g_Audio playBackgroundMusic:@"bg0.wav"];
+        [g_Audio preloadBackgroundMusic:SFX_MATCH_BACKGROUND];
+        [g_Audio preloadEffect:SFX_MATCH_CLICK];
+        [g_Audio preloadEffect:SFX_MATCH_COMBO];
+        [g_Audio playBackgroundMusic:SFX_MATCH_BACKGROUND];
         
         [[[CCDirector sharedDirector] view] setMultipleTouchEnabled:YES];
         

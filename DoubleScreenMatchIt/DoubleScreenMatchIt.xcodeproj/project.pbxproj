@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		331BC02F17F1590900BB3490 /* click0.wav in Resources */ = {isa = PBXBuildFile; fileRef = 331BC02617F1590900BB3490 /* click0.wav */; };
+		331BC03017F1590900BB3490 /* click1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 331BC02717F1590900BB3490 /* click1.wav */; };
+		331BC03117F1590900BB3490 /* click2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 331BC02817F1590900BB3490 /* click2.mp3 */; };
+		331BC03217F1590900BB3490 /* electricity_high_voltage_spark.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 331BC02917F1590900BB3490 /* electricity_high_voltage_spark.mp3 */; };
+		331BC03317F1590900BB3490 /* multimedia_button_click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 331BC02A17F1590900BB3490 /* multimedia_button_click.mp3 */; };
+		331BC03417F1590900BB3490 /* wood_stick_hit_log_hard.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 331BC02B17F1590900BB3490 /* wood_stick_hit_log_hard.mp3 */; };
+		331BC03517F1590900BB3490 /* wood_stick_hit_log_soft.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 331BC02C17F1590900BB3490 /* wood_stick_hit_log_soft.mp3 */; };
+		331BC04F17F15A6500BB3490 /* bg0.wav in Resources */ = {isa = PBXBuildFile; fileRef = 331BC04C17F15A6500BB3490 /* bg0.wav */; };
+		331BC05017F15A6500BB3490 /* cool_funny_bounce_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 331BC04D17F15A6500BB3490 /* cool_funny_bounce_music.mp3 */; };
+		331BC05217F15B7E00BB3490 /* handgun_22_caliber_single_shot_interior_shooting_range_pistol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 331BC05117F15B7E00BB3490 /* handgun_22_caliber_single_shot_interior_shooting_range_pistol.mp3 */; };
 		331E46EE17ED3793001D2789 /* CCNodeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 331E46ED17ED3793001D2789 /* CCNodeHelper.m */; };
 		331E470617ED4DE4001D2789 /* UI.plist in Resources */ = {isa = PBXBuildFile; fileRef = 331E470417ED4DE4001D2789 /* UI.plist */; };
 		331E470717ED4DE4001D2789 /* UI.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 331E470517ED4DE4001D2789 /* UI.pvr.ccz */; };
@@ -150,10 +160,6 @@
 		33EEE8EA17F0371B00A19342 /* lose.png in Resources */ = {isa = PBXBuildFile; fileRef = 33EEE8E817F0371B00A19342 /* lose.png */; };
 		33EEE8EB17F0371B00A19342 /* win.png in Resources */ = {isa = PBXBuildFile; fileRef = 33EEE8E917F0371B00A19342 /* win.png */; };
 		33F8072817EEABFC009E2539 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F8072717EEABFC009E2539 /* background.png */; };
-		33F8072E17EED08F009E2539 /* bg0.wav in Resources */ = {isa = PBXBuildFile; fileRef = 33F8072A17EED08F009E2539 /* bg0.wav */; };
-		33F8072F17EED08F009E2539 /* clear0.wav in Resources */ = {isa = PBXBuildFile; fileRef = 33F8072B17EED08F009E2539 /* clear0.wav */; };
-		33F8073017EED08F009E2539 /* click0.wav in Resources */ = {isa = PBXBuildFile; fileRef = 33F8072C17EED08F009E2539 /* click0.wav */; };
-		33F8073117EED08F009E2539 /* click1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 33F8072D17EED08F009E2539 /* click1.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +173,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		331BC01917F143E100BB3490 /* ResourceConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceConfig.h; sourceTree = "<group>"; };
+		331BC02617F1590900BB3490 /* click0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click0.wav; sourceTree = "<group>"; };
+		331BC02717F1590900BB3490 /* click1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click1.wav; sourceTree = "<group>"; };
+		331BC02817F1590900BB3490 /* click2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click2.mp3; sourceTree = "<group>"; };
+		331BC02917F1590900BB3490 /* electricity_high_voltage_spark.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = electricity_high_voltage_spark.mp3; sourceTree = "<group>"; };
+		331BC02A17F1590900BB3490 /* multimedia_button_click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = multimedia_button_click.mp3; sourceTree = "<group>"; };
+		331BC02B17F1590900BB3490 /* wood_stick_hit_log_hard.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wood_stick_hit_log_hard.mp3; sourceTree = "<group>"; };
+		331BC02C17F1590900BB3490 /* wood_stick_hit_log_soft.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wood_stick_hit_log_soft.mp3; sourceTree = "<group>"; };
+		331BC04C17F15A6500BB3490 /* bg0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bg0.wav; sourceTree = "<group>"; };
+		331BC04D17F15A6500BB3490 /* cool_funny_bounce_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cool_funny_bounce_music.mp3; sourceTree = "<group>"; };
+		331BC05117F15B7E00BB3490 /* handgun_22_caliber_single_shot_interior_shooting_range_pistol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = handgun_22_caliber_single_shot_interior_shooting_range_pistol.mp3; sourceTree = "<group>"; };
 		331E46EC17ED3793001D2789 /* CCNodeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNodeHelper.h; sourceTree = "<group>"; };
 		331E46ED17ED3793001D2789 /* CCNodeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNodeHelper.m; sourceTree = "<group>"; };
 		331E470417ED4DE4001D2789 /* UI.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UI.plist; sourceTree = "<group>"; };
@@ -450,10 +467,6 @@
 		33EEE8E817F0371B00A19342 /* lose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lose.png; sourceTree = "<group>"; };
 		33EEE8E917F0371B00A19342 /* win.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = win.png; sourceTree = "<group>"; };
 		33F8072717EEABFC009E2539 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
-		33F8072A17EED08F009E2539 /* bg0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bg0.wav; sourceTree = "<group>"; };
-		33F8072B17EED08F009E2539 /* clear0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clear0.wav; sourceTree = "<group>"; };
-		33F8072C17EED08F009E2539 /* click0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click0.wav; sourceTree = "<group>"; };
-		33F8072D17EED08F009E2539 /* click1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click1.wav; sourceTree = "<group>"; };
 		33F8073217EED0ED009E2539 /* Cocos2dHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cocos2dHelper.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -477,6 +490,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		331BC02217F1590900BB3490 /* SFX */ = {
+			isa = PBXGroup;
+			children = (
+				331BC04B17F15A6500BB3490 /* background */,
+				331BC04E17F15A6500BB3490 /* combo */,
+				331BC02517F1590900BB3490 /* click */,
+			);
+			path = SFX;
+			sourceTree = SOURCE_ROOT;
+		};
+		331BC02517F1590900BB3490 /* click */ = {
+			isa = PBXGroup;
+			children = (
+				331BC02617F1590900BB3490 /* click0.wav */,
+				331BC02717F1590900BB3490 /* click1.wav */,
+				331BC02817F1590900BB3490 /* click2.mp3 */,
+				331BC02917F1590900BB3490 /* electricity_high_voltage_spark.mp3 */,
+				331BC02A17F1590900BB3490 /* multimedia_button_click.mp3 */,
+				331BC02B17F1590900BB3490 /* wood_stick_hit_log_hard.mp3 */,
+				331BC02C17F1590900BB3490 /* wood_stick_hit_log_soft.mp3 */,
+			);
+			path = click;
+			sourceTree = "<group>";
+		};
+		331BC04B17F15A6500BB3490 /* background */ = {
+			isa = PBXGroup;
+			children = (
+				331BC04C17F15A6500BB3490 /* bg0.wav */,
+				331BC04D17F15A6500BB3490 /* cool_funny_bounce_music.mp3 */,
+			);
+			path = background;
+			sourceTree = "<group>";
+		};
+		331BC04E17F15A6500BB3490 /* combo */ = {
+			isa = PBXGroup;
+			children = (
+				331BC05117F15B7E00BB3490 /* handgun_22_caliber_single_shot_interior_shooting_range_pistol.mp3 */,
+			);
+			path = combo;
+			sourceTree = "<group>";
+		};
 		331E46E317ED2D46001D2789 /* MatchItScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -556,6 +610,7 @@
 				331E46EC17ED3793001D2789 /* CCNodeHelper.h */,
 				331E46ED17ED3793001D2789 /* CCNodeHelper.m */,
 				33F8073217EED0ED009E2539 /* Cocos2dHelper.h */,
+				331BC01917F143E100BB3490 /* ResourceConfig.h */,
 			);
 			path = DoubleScreenMatchIt;
 			sourceTree = "<group>";
@@ -563,7 +618,7 @@
 		33778F7217EC2EA500756914 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				33F8072917EED08F009E2539 /* SFX */,
+				331BC02217F1590900BB3490 /* SFX */,
 				33F8072217EE9C11009E2539 /* DebugPic */,
 				331E470217ED4DE4001D2789 /* ArtProduction */,
 				33778F7317EC2EA500756914 /* Default.png */,
@@ -944,17 +999,6 @@
 			path = DebugPic;
 			sourceTree = "<group>";
 		};
-		33F8072917EED08F009E2539 /* SFX */ = {
-			isa = PBXGroup;
-			children = (
-				33F8072A17EED08F009E2539 /* bg0.wav */,
-				33F8072B17EED08F009E2539 /* clear0.wav */,
-				33F8072C17EED08F009E2539 /* click0.wav */,
-				33F8072D17EED08F009E2539 /* click1.wav */,
-			);
-			path = SFX;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXLegacyTarget section */
@@ -1061,34 +1105,40 @@
 			files = (
 				33EEE8EB17F0371B00A19342 /* win.png in Resources */,
 				332154AD17F00AE0008FCACB /* button_restart_clicked.png in Resources */,
+				331BC04F17F15A6500BB3490 /* bg0.wav in Resources */,
 				33778F7417EC2EA500756914 /* Default.png in Resources */,
-				33F8073017EED08F009E2539 /* click0.wav in Resources */,
+				331BC03317F1590900BB3490 /* multimedia_button_click.mp3 in Resources */,
 				33778F7617EC2EA500756914 /* Default-Landscape~ipad.png in Resources */,
 				332154A617EFED99008FCACB /* button_reset.png in Resources */,
 				33BC811217EEEE1600E7C81E /* background2.png in Resources */,
 				33778F7817EC2EA500756914 /* fps_images.png in Resources */,
+				331BC03117F1590900BB3490 /* click2.mp3 in Resources */,
+				331BC05017F15A6500BB3490 /* cool_funny_bounce_music.mp3 in Resources */,
 				33268B3C17F019A4005EA022 /* button_tip_clicked.png in Resources */,
 				33778F7A17EC2EA500756914 /* fps_images-hd.png in Resources */,
 				33778F7C17EC2EA500756914 /* fps_images-ipadhd.png in Resources */,
 				33778F7E17EC2EA500756914 /* Icon-72.png in Resources */,
 				33778F8017EC2EA500756914 /* Icon-Small-50.png in Resources */,
 				332154A917EFEE83008FCACB /* button_reset_clicked.png in Resources */,
-				33F8072E17EED08F009E2539 /* bg0.wav in Resources */,
-				33F8072F17EED08F009E2539 /* clear0.wav in Resources */,
 				33778F8217EC2EA500756914 /* Icon-Small.png in Resources */,
 				33EEE8EA17F0371B00A19342 /* lose.png in Resources */,
 				33778F8417EC2EA500756914 /* Icon-Small@2x.png in Resources */,
 				332154AC17F00AE0008FCACB /* button_restart.png in Resources */,
+				331BC03517F1590900BB3490 /* wood_stick_hit_log_soft.mp3 in Resources */,
 				33F8072817EEABFC009E2539 /* background.png in Resources */,
+				331BC03017F1590900BB3490 /* click1.wav in Resources */,
+				331BC03217F1590900BB3490 /* electricity_high_voltage_spark.mp3 in Resources */,
 				33778F8617EC2EA500756914 /* Icon.png in Resources */,
+				331BC03417F1590900BB3490 /* wood_stick_hit_log_hard.mp3 in Resources */,
 				33778F8817EC2EA500756914 /* Icon@2x.png in Resources */,
 				332154A717EFED99008FCACB /* button_tip.png in Resources */,
 				33778F8B17EC2EA500756914 /* iTunesArtwork in Resources */,
 				337790C917EC2EA600756914 /* ChangeLog in Resources */,
 				331E470617ED4DE4001D2789 /* UI.plist in Resources */,
+				331BC02F17F1590900BB3490 /* click0.wav in Resources */,
 				331E470717ED4DE4001D2789 /* UI.pvr.ccz in Resources */,
-				33F8073117EED08F009E2539 /* click1.wav in Resources */,
 				331E471517ED79B0001D2789 /* Config.plist in Resources */,
+				331BC05217F15B7E00BB3490 /* handgun_22_caliber_single_shot_interior_shooting_range_pistol.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
